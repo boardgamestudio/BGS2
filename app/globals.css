@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Updated color palette to match design system with whites, grays, and accent colors */
+  --background: #2a2d35;
+  --foreground: #ffffff;
+  --card: #3a3d45;
+  --card-foreground: #ffffff;
+  --popover: #3a3d45;
+  --popover-foreground: #ffffff;
+  --primary: #f9d442;
+  --primary-foreground: #2a2d35;
+  --secondary: #4b515a;
+  --secondary-foreground: #ffffff;
+  --muted: #7d838c;
+  --muted-foreground: #d7dadd;
+  --accent: #6bbaa7;
+  --accent-foreground: #ffffff;
+  --destructive: #c5788f;
+  --destructive-foreground: #ffffff;
+  --border: #4b515a;
+  --input: #3a3d45;
+  --ring: #f9d442;
+
+  /* Added design system accent colors */
+  --yellow: #f9d442;
+  --orange: #e67e22;
+  --teal: #6bbaa7;
+  --pink: #c5788f;
+  --gray-50: #ffffff;
+  --gray-100: #eef2f6;
+  --gray-200: #d7dadd;
+  --gray-300: #7d838c;
+  --gray-400: #4b515a;
+
+  --chart-1: #f9d442;
+  --chart-2: #6bbaa7;
+  --chart-3: #c5788f;
+  --chart-4: #e67e22;
+  --chart-5: #7d838c;
+  --radius: 0.75rem;
+  --sidebar: #2a2d35;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #f9d442;
+  --sidebar-primary-foreground: #2a2d35;
+  --sidebar-accent: #3a3d45;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4b515a;
+  --sidebar-ring: #f9d442;
+}
+
+.dark {
+  /* Dark mode uses same colors as design system is already dark themed */
+  --background: #2a2d35;
+  --foreground: #ffffff;
+  --card: #3a3d45;
+  --card-foreground: #ffffff;
+  --popover: #3a3d45;
+  --popover-foreground: #ffffff;
+  --primary: #f9d442;
+  --primary-foreground: #2a2d35;
+  --secondary: #4b515a;
+  --secondary-foreground: #ffffff;
+  --muted: #7d838c;
+  --muted-foreground: #d7dadd;
+  --accent: #6bbaa7;
+  --accent-foreground: #ffffff;
+  --destructive: #c5788f;
+  --destructive-foreground: #ffffff;
+  --border: #4b515a;
+  --input: #3a3d45;
+  --ring: #f9d442;
+  --chart-1: #f9d442;
+  --chart-2: #6bbaa7;
+  --chart-3: #c5788f;
+  --chart-4: #e67e22;
+  --chart-5: #7d838c;
+  --sidebar: #2a2d35;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #f9d442;
+  --sidebar-primary-foreground: #2a2d35;
+  --sidebar-accent: #3a3d45;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4b515a;
+  --sidebar-ring: #f9d442;
+}
+
+@theme inline {
+  /* Added Alegreya font family from design system */
+  --font-sans: "Alegreya Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Alegreya", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Added design system color utilities */
+  --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
+  --color-teal: var(--teal);
+  --color-pink: var(--pink);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Added typography hierarchy from design system */
+  h1 {
+    @apply text-5xl font-bold font-serif leading-tight;
+  }
+  h2 {
+    @apply text-4xl font-bold font-serif leading-tight;
+  }
+  h3 {
+    @apply text-3xl font-semibold font-serif leading-snug;
+  }
+  h4 {
+    @apply text-2xl font-semibold font-serif leading-snug;
+  }
+  h5 {
+    @apply text-xl font-medium font-serif leading-normal;
+  }
+  h6 {
+    @apply text-lg font-medium font-serif leading-normal;
+  }
+
+  p {
+    @apply text-base leading-relaxed font-sans;
+  }
+
+  .text-p1 {
+    @apply text-lg leading-relaxed font-sans;
+  }
+
+  .text-p2 {
+    @apply text-base leading-relaxed font-sans;
+  }
+
+  .text-p3 {
+    @apply text-sm leading-relaxed font-sans;
+  }
+}
+
+/* Added component-specific styling matching design system */
+@layer components {
+  .btn-primary {
+    @apply bg-yellow text-gray-400 hover:bg-yellow/90 font-medium rounded-lg px-4 py-2 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-teal text-white hover:bg-teal/90 font-medium rounded-lg px-4 py-2 transition-colors;
+  }
+
+  .btn-tertiary {
+    @apply bg-transparent border border-gray-300 text-foreground hover:bg-gray-400/10 font-medium rounded-lg px-4 py-2 transition-colors;
+  }
+
+  .input-field {
+    @apply bg-input border border-border rounded-lg px-3 py-2 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+
+  .card-elevated {
+    @apply bg-card border border-border rounded-lg shadow-lg hover:shadow-xl transition-shadow;
+  }
+}
